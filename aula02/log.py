@@ -39,7 +39,7 @@ total_faturado = sum(pedido[2] for pedido in pedidos if pedido[3] != 'cancelado'
 print(f"Total faturado: {total_faturado}")
 
 #=Errado
-clientes = [pedidos[1] for pedido in pedidos if pedido[3] != 'cancelado']
+clientes = [pedido[1] for pedido in pedidos if pedido[3] != 'cancelado']
 #top_cliente = Counter(clientes).most_common(1)[0][0]
 print(f"Maior pedido: {clientes}")
 
@@ -54,20 +54,20 @@ usuario = {
 
 user = usuario.get("telefone", "Telefone nao cadastrado")
 
-for chave in usuario:
-    print(f"{chave}: {usuario[chave]}")
+# for chave in usuario:
+#     print(f"{chave}: {usuario[chave]}")
 
-for chave, valor in usuario.items():
-    print(f"{chave}: {valor}")
+# for chave, valor in usuario.items():
+#     print(f"{chave}: {valor}")
 
-for valor in usuario.vakues():
-    print(valor)
+# for valor in usuario.vakues():
+#     print(valor)
 
 
-if "email" in usuario.values():
-    print("Email cadastrado")
+# if "email" in usuario.values():
+#     print("Email cadastrado")
 
-if "email" in usuario:
-    print("Email cadastrado")
+# if "email" in usuario:
+#     print("Email cadastrado")
 
 
