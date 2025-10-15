@@ -31,3 +31,20 @@ def obter_usuario():
 
 nome, idade, genero = obter_usuario()
 print(nome, idade, genero)
+
+
+tecnoloigias = {"Python", "Java", "JavaScript"}
+print(tecnoloigias)
+
+#Operacoes de conjutos
+backend_devs = {"Ana", "Bruno", "Carlos"}
+frontend_devs = {"Daniel", "Bruno", "Eduardo"}
+
+#Interseção (quem faz ambos?)
+fullstack = backend_devs & frontend_devs # Bruno
+
+#União (todos os devs)
+todos_devs = backend_devs | frontend_devs
+
+#Diferença (quem faz backend mas nao faz frontend?)
+so_backend = backend_devs - frontend_devs # Ana, Carlos
