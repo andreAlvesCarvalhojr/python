@@ -5,6 +5,7 @@ requires-python = ">=3.14"
 [manifest]
 members = [
     "aula07",
+    "aula08",
     "python-backend",
 ]
 
@@ -21,6 +22,17 @@ wheels = [
 name = "aula07"
 version = "0.1.0"
 source = { virtual = "aula07" }
+dependencies = [
+    { name = "django" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "django", specifier = ">=5.2.8" }]
+
+[[package]]
+name = "aula08"
+version = "0.1.0"
+source = { virtual = "aula08" }
 dependencies = [
     { name = "django" },
 ]
