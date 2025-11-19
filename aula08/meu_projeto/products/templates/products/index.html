@@ -1,0 +1,29 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Página Inicial - Loja de Produtos{% endblock %}
+
+{% block header %}Bem-vindo à Nossa Loja{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 40px;">
+    <h2>🛍️ Bem-vindo à página de produtos!</h2>
+    <p style="font-size: 1.1em; color: #666; margin: 20px 0;">
+        Aqui você encontra os melhores produtos com os melhores preços.
+    </p>
+    
+    <div style="margin-top: 30px;">
+        <a href="{% url 'product_list' %}" 
+           style="background-color: #007bff; color: white; padding: 12px 24px; 
+                  text-decoration: none; border-radius: 5px; font-size: 1.1em;">
+            Ver Todos os Produtos
+        </a>
+    </div>
+    
+    <div style="margin-top: 40px; background-color: #e9f4ff; padding: 20px; border-radius: 8px;">
+        <h3>🎯 Destaques</h3>
+        <p>✅ Produtos de qualidade</p>
+        <p>✅ Preços competitivos</p>
+        <p>✅ Entrega rápida</p>
+    </div>
+</div>
+{% endblock %}

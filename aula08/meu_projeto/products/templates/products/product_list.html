@@ -1,0 +1,66 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Lista de Produtos - Loja{% endblock %}
+
+{% block header %}Catálogo de Produtos{% endblock %}
+
+{% block content %}
+<div>
+    <h2>📦 Produtos Disponíveis</h2>
+    
+    {% if produtos %}
+        <p style="color: #666; margin-bottom: 20px;">
+            Encontramos <strong>{{ produtos|length }}</strong> produto{{ produtos|length|pluralize }} disponí{{ produtos|length|pluralize:"vel,veis" }}.
+        </p>
+        
+        {% for produto in produtos %}
+        <div class="product-card">
+            <div class="product-name">{{ produto.name }}</div>
+            <div class="product-description">{{ produto.description }}</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                <div class="product-price">R$ {{ produto.price }}</div>
+                <div class="product-stock">
+                    {% if produto.stock > 0 %}
+                        📦 {{ produto.stock }} em estoque
+                    {% else %}
+                        ❌ Fora de estoque
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div style="margin-top: 10px;">
+                <a href="{% url 'product_detail' produto.id %}" 
+                   style="background-color: #007bff; color: white; padding: 8px 16px; 
+                          text-decoration: none; border-radius: 4px; display: inline-block; margin-right: 10px;">
+                    👁️ Ver Detalhes
+                </a>
+                {% if produto.stock > 0 %}
+                    <button style="background-color: #28a745; color: white; padding: 8px 16px; 
+                                   border: none; border-radius: 4px; cursor: pointer;">
+                        🛒 Adicionar ao Carrinho
+                    </button>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        
+    {% else %}
+        <div style="text-align: center; padding: 40px; background-color: #fff3cd; 
+                    border-radius: 8px; border: 1px solid #ffeaa7;">
+            <h3>😕 Nenhum produto encontrado</h3>
+            <p>Ainda não temos produtos cadastrados no sistema.</p>
+            <a href="/admin/" style="color: #007bff; text-decoration: none;">
+                ➕ Cadastrar produtos no Admin
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+<div style="margin-top: 30px; text-align: center;">
+    <a href="{% url 'index' %}" 
+       style="background-color: #6c757d; color: white; padding: 10px 20px; 
+              text-decoration: none; border-radius: 4px;">
+        ⬅️ Voltar ao Início
+    </a>
+</div>
+{% endblock %}

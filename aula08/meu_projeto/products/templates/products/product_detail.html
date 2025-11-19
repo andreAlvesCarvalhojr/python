@@ -1,0 +1,76 @@
+{% extends 'products/base.html' %}
+
+{% block title %}{{ produto.name }} - Detalhes{% endblock %}
+
+{% block header %}Detalhes do Produto{% endblock %}
+
+{% block content %}
+<div>
+    <div style="background-color: white; padding: 30px; border-radius: 8px; border: 1px solid #ddd;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="color: #333; margin-bottom: 10px;">{{ produto.name }}</h2>
+            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p style="font-size: 1.1em; color: #666; line-height: 1.6;">
+                    {{ produto.description }}
+                </p>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+            <div style="text-align: center; padding: 20px; background-color: #e8f5e8; border-radius: 8px;">
+                <h3 style="color: #28a745; margin-bottom: 10px;">💰 Preço</h3>
+                <div style="font-size: 2em; font-weight: bold; color: #28a745;">
+                    R$ {{ produto.price }}
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding: 20px; background-color: #e3f2fd; border-radius: 8px;">
+                <h3 style="color: #007bff; margin-bottom: 10px;">📦 Estoque</h3>
+                <div style="font-size: 2em; font-weight: bold; color: #007bff;">
+                    {{ produto.stock }} unidades
+                </div>
+                {% if produto.stock <= 5 and produto.stock > 0 %}
+                    <div style="color: #ff6b35; font-size: 0.9em; margin-top: 5px;">
+                        ⚠️ Últimas unidades!
+                    </div>
+                {% elif produto.stock == 0 %}
+                    <div style="color: #dc3545; font-size: 0.9em; margin-top: 5px;">
+                        ❌ Produto esgotado
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            {% if produto.stock > 0 %}
+                <button style="background-color: #28a745; color: white; padding: 15px 30px; 
+                               border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; margin-right: 10px;">
+                    🛒 Adicionar ao Carrinho
+                </button>
+                <button style="background-color: #007bff; color: white; padding: 15px 30px; 
+                               border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer;">
+                    💳 Comprar Agora
+                </button>
+            {% else %}
+                <button style="background-color: #6c757d; color: white; padding: 15px 30px; 
+                               border: none; border-radius: 5px; font-size: 1.1em; cursor: not-allowed;" disabled>
+                    ❌ Produto Indisponível
+                </button>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px; text-align: center;">
+        <a href="{% url 'product_list' %}" 
+           style="background-color: #6c757d; color: white; padding: 10px 20px; 
+                  text-decoration: none; border-radius: 4px; margin-right: 10px;">
+            ⬅️ Voltar à Lista
+        </a>
+        <a href="{% url 'index' %}" 
+           style="background-color: #17a2b8; color: white; padding: 10px 20px; 
+                  text-decoration: none; border-radius: 4px;">
+            🏠 Página Inicial
+        </a>
+    </div>
+</div>
+{% endblock %}
