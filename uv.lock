@@ -6,6 +6,7 @@ requires-python = ">=3.14"
 members = [
     "aula07",
     "aula08",
+    "monolith-project",
     "python-backend",
 ]
 
@@ -53,6 +54,17 @@ sdist = { url = "https://files.pythonhosted.org/packages/05/a2/933dbbb3dd9990494
 wheels = [
     { url = "https://files.pythonhosted.org/packages/5e/3d/a035a4ee9b1d4d4beee2ae6e8e12fe6dee5514b21f62504e22efcbd9fb46/django-5.2.8-py3-none-any.whl", hash = "sha256:37e687f7bd73ddf043e2b6b97cfe02fcbb11f2dbb3adccc6a2b18c6daa054d7f", size = 8289692, upload-time = "2025-11-05T14:07:28.761Z" },
 ]
+
+[[package]]
+name = "monolith-project"
+version = "0.1.0"
+source = { virtual = "00 monolith" }
+dependencies = [
+    { name = "django" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "django", specifier = ">=5.2.8" }]
 
 [[package]]
 name = "python-backend"

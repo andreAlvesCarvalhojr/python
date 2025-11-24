@@ -1,0 +1,9 @@
+[project]
+name = "monolith-project"
+version = "0.1.0"
+description = "Django Monolith Project"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "django>=5.2.8",
+]
