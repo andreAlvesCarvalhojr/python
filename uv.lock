@@ -9,6 +9,7 @@ members = [
     "aula09",
     "aula10",
     "aula12",
+    "aula13",
     "monolith-project",
     "python-backend",
 ]
@@ -109,6 +110,17 @@ requires-dist = [
     { name = "bcrypt", specifier = "==4.3.0" },
     { name = "passlib", specifier = ">=1.7.4" },
 ]
+
+[[package]]
+name = "aula13"
+version = "0.1.0"
+source = { virtual = "aula13" }
+dependencies = [
+    { name = "fastapi" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "fastapi", specifier = ">=0.121.3" }]
 
 [[package]]
 name = "bcrypt"
