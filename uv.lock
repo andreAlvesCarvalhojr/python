@@ -11,6 +11,7 @@ members = [
     "aula12",
     "aula13",
     "aula14",
+    "aula18",
     "monolith-project",
     "python-backend",
 ]
@@ -140,6 +141,23 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "pytest", specifier = ">=9.0.1" },
     { name = "uvicorn", specifier = ">=0.32.0" },
+]
+
+[[package]]
+name = "aula18"
+version = "0.1.0"
+source = { virtual = "aula18" }
+dependencies = [
+    { name = "django" },
+    { name = "fastapi" },
+    { name = "uvicorn" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "django", specifier = ">=5.2.8" },
+    { name = "fastapi", specifier = ">=0.121.3" },
+    { name = "uvicorn", specifier = ">=0.38.0" },
 ]
 
 [[package]]
